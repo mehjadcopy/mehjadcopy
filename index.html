@@ -1,98 +1,467 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Mehjad Rahman | Email Copywriter</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
-            background-color: #0f0f0f;
-            color: #ffffff;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 40px;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mehjad Rahman | Email Copywriter</title>
+  <meta name="description" content="Email copywriter & revenue-focused marketer for DTC brands. Campaign strategy, flows, design, audits, and optimization." />
 
-        h1 {
-            font-size: 40px;
-        }
+  <!-- Font (fast + clean). Optional. If you want zero external calls, remove this link and it will use system fonts. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        h2 {
-            margin-top: 60px;
-            border-bottom: 1px solid #333;
-            padding-bottom: 10px;
-        }
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.08);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.68);
+      --line: rgba(255,255,255,0.12);
+      --accent: #3dd6ff;
+      --accent2: #7cffb8;
+      --shadow: 0 10px 30px rgba(0,0,0,0.45);
+      --radius: 18px;
+      --max: 1080px;
+    }
 
-        a {
-            color: #00bcd4;
-            text-decoration: none;
-        }
+    *{ box-sizing:border-box; }
+    html{ scroll-behavior:smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 500px at 15% 15%, rgba(61,214,255,0.12), transparent 55%),
+        radial-gradient(900px 500px at 85% 30%, rgba(124,255,184,0.10), transparent 55%),
+        radial-gradient(700px 400px at 50% 95%, rgba(61,214,255,0.08), transparent 60%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
 
-        .section {
-            margin-top: 30px;
-        }
+    a{ color: inherit; text-decoration:none; }
+    a:hover{ opacity:0.92; }
 
-        .card {
-            background: #1a1a1a;
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: 8px;
-        }
+    .wrap{ max-width: var(--max); margin: 0 auto; padding: 22px; }
 
-        button {
-            background: #00bcd4;
-            border: none;
-            padding: 12px 20px;
-            margin-top: 20px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-    </style>
+    /* Navbar */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(10px);
+      background: rgba(11,12,16,0.55);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 14px 22px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 6px rgba(61,214,255,0.10);
+    }
+    .links{ display:flex; gap: 14px; flex-wrap:wrap; }
+    .links a{
+      font-size: 14px;
+      color: var(--muted);
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+    .links a:hover{
+      color: var(--text);
+      border-color: var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+
+    /* Buttons */
+    .btns{ display:flex; gap: 12px; flex-wrap:wrap; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,0.06); border-color: rgba(255,255,255,0.18); }
+    .btn.primary{
+      border: none;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: rgba(0,0,0,0.85);
+      box-shadow: 0 10px 26px rgba(61,214,255,0.12);
+    }
+    .btn.primary:hover{ transform: translateY(-1px); filter: brightness(1.02); }
+    .btn .arrow{ font-weight: 700; }
+
+    /* Hero */
+    .hero{
+      padding: 56px 0 18px;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: center;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 13px;
+      width: fit-content;
+    }
+    .pill b{ color: var(--text); font-weight: 600; }
+    h1{
+      margin: 14px 0 10px;
+      font-size: clamp(34px, 4.2vw, 52px);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 16px;
+      max-width: 60ch;
+      margin: 0 0 18px;
+    }
+    .highlights{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .chip{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .card{
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .profile{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-height: 260px;
+      position: relative;
+      overflow:hidden;
+    }
+    .profile::before{
+      content:"";
+      position:absolute;
+      inset:-60px;
+      background: radial-gradient(220px 220px at 25% 30%, rgba(61,214,255,0.22), transparent 55%),
+                  radial-gradient(220px 220px at 80% 65%, rgba(124,255,184,0.18), transparent 58%);
+      filter: blur(10px);
+    }
+    .pfp{
+      position: relative;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.22);
+      background: rgba(255,255,255,0.05);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+    }
+    .pfp img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .pfp span{
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+      padding: 10px;
+    }
+    .mini{
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align:center;
+    }
+
+    /* Sections */
+    section{ padding: 30px 0; }
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    h2{
+      margin:0;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+    }
+    .subtitle{
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Grids */
+    .grid{
+      display:grid;
+      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    .grid.two{ grid-template-columns: repeat(2, 1fr); }
+    .grid.one{ grid-template-columns: 1fr; }
+
+    .item h3{
+      margin: 0 0 6px;
+      font-size: 15px;
+      letter-spacing: -0.01em;
+    }
+    .item p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Work cards */
+    .work{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .work-card{
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      border-radius: var(--radius);
+      padding: 16px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .work-card:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.18);
+    }
+    .work-top{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap: 12px;
+      flex-wrap:wrap;
+    }
+    .tagrow{ display:flex; gap: 8px; flex-wrap:wrap; }
+    .tag{
+      font-size: 12px;
+      color: var(--muted);
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.02);
+    }
+    .work-body{
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .work-links{
+      margin-top: 12px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+    }
+    .small-link{
+      font-size: 13px;
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.02);
+    }
+
+    /* CTA Banner */
+    .cta{
+      border: 1px solid rgba(255,255,255,0.14);
+      background: radial-gradient(600px 250px at 20% 20%, rgba(61,214,255,0.14), transparent 60%),
+                  radial-gradient(600px 250px at 90% 80%, rgba(124,255,184,0.12), transparent 60%),
+                  rgba(255,255,255,0.03);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 16px;
+      flex-wrap:wrap;
+    }
+    .cta strong{ font-size: 16px; letter-spacing: -0.01em; }
+    .cta span{ color: var(--muted); font-size: 14px; display:block; margin-top: 4px; }
+
+    /* Footer */
+    footer{
+      padding: 26px 0 40px;
+      color: var(--muted);
+      font-size: 13px;
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; padding-top: 34px; }
+      .grid{ grid-template-columns: 1fr; }
+      .grid.two{ grid-template-columns: 1fr; }
+      .nav .inner{ align-items:flex-start; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      html{ scroll-behavior:auto; }
+      .btn, .work-card{ transition:none; }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">
+        <span class="dot"></span>
+        <span>Mehjad Rahman</span>
+      </div>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </div>
 
-<h1>Mehjad Rahman</h1>
-<p>Email Copywriter & Revenue-Focused Marketer for DTC Brands</p>
+  <main class="wrap">
+    <!-- HERO -->
+    <div class="hero" id="top">
+      <div>
+        <div class="pill">
+          <b>Email Copywriter</b> • DTC • Campaigns + Flows • Design + Copy
+        </div>
 
-<button onclick="location.href='#contact'">Work With Me</button>
+        <h1>Revenue-focused email systems for DTC brands.</h1>
 
-<h2>About</h2>
-<div class="section">
-    <p>MBBS graduate turned email marketer. I build strategic email systems that increase retention, improve LTV, and drive revenue for DTC brands.</p>
-</div>
+        <p class="lead">
+          I write and design text-based and design-based emails that improve retention,
+          increase LTV, and turn your list into a dependable revenue channel.
+        </p>
 
-<h2>Services</h2>
-<div class="section">
-    <div class="card">
-        <h3>Email Campaign Strategy</h3>
-        <p>Revenue-focused promotional and launch campaigns.</p>
+        <div class="btns">
+          <a class="btn primary" href="#work">View Work <span class="arrow">→</span></a>
+          <a class="btn" href="#contact">Book a Strategy Call</a>
+        </div>
+
+        <div class="highlights">
+          <div class="chip">Klaviyo implementation</div>
+          <div class="chip">Figma-first design</div>
+          <div class="chip">Lifecycle strategy</div>
+          <div class="chip">Supplement brand experience</div>
+        </div>
+      </div>
+
+      <div class="card profile">
+        <div>
+          <div class="pfp">
+            <!-- Replace pfp.jpg with your image file in the repo.
+                 If you don’t have it yet, keep the placeholder. -->
+            <!-- <img src="pfp.jpg" alt="Mehjad Rahman" /> -->
+            <span>Add your photo<br>(pfp.jpg)</span>
+          </div>
+          <div class="mini">
+            MBBS background (not listed) • Business + finance mindset
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="card">
-        <h3>Lifecycle Flows</h3>
-        <p>Welcome, abandoned cart, post-purchase, and winback systems.</p>
-    </div>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-title">
+        <h2>About</h2>
+        <div class="subtitle">Strategy over noise. Clarity over hype.</div>
+      </div>
 
-    <div class="card">
-        <h3>Email Design</h3>
-        <p>Conversion-focused design built in Figma and Klaviyo.</p>
-    </div>
-</div>
+      <div class="grid two">
+        <div class="card item">
+          <h3>Who I am</h3>
+          <p>
+            I’m an email copywriter and marketer with an MBBS background.
+            I’m passionate about finance and business, which shows up in how I approach marketing:
+            structured, analytical, and outcome-driven.
+          </p>
+        </div>
 
-<h2>Selected Work</h2>
-<div class="section">
-    <div class="card">
-        <h3>DTC Supplement Brand</h3>
-        <p>Campaigns and flows designed for retention and revenue growth.</p>
-    </div>
-</div>
+        <div class="card item">
+          <h3>What I focus on</h3>
+          <p>
+            I build campaign plans and lifecycle flows that support revenue goals,
+            reduce churn, and increase repeat purchases, especially for DTC supplement brands.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<h2 id="contact">Contact</h2>
-<div class="section">
-    <p>Email: your@email.com</p>
-    <p>Instagram: @yourhandle</p>
-    <p>Phone: +61 XXX XXX XXX</p>
-</div>
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="section-title">
+        <h2>Services</h2>
+        <div class="subtitle">Done-for-you execution with clean systems.</div>
+      </div>
 
-</body>
-</html>
+      <div class="grid">
+        <div class="card item">
+          <h3>Email campaign strategy</h3>
+          <p>Launches, promos, seasonal calendars, and offer framing tied to revenue targets.</p>
+        </div>
+        <div class="card item">
+          <h3>Flow setup</h3>
+          <p>Welcome, abandoned cart, browse abandonment, post-purchase, winback systems.</p>
+        </div>
+        <div class="card item">
+          <h3>Email design</h3>
+          <p>Design-based and text-based emails in Figma, built cleanly in Klaviyo.</p>
+        </div>
+        <div class="card item">
+          <h3>Copy audits</h3>
+          <p>Fix clarity, structure, persuasion, and flow logic. Remove what’s not pulling weight.</p>
+        </div>
+        <div class="card item">
+          <h3>Revenue optimization</h3>
+          <p>Lifecycle improvements for retention, AOV, LTV, and r
